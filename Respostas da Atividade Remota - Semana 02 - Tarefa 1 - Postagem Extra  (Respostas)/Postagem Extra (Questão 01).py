@@ -10,46 +10,65 @@ class Radio():
     cor = None
     frequencia = None #AM/FM
     peso = None
-    estacao = 80
+    estacao = None
+    volume = 0
 
     #Métodos
-    def ligar(self, liga):
-        self.liga = liga
-        print(f"O rádio está {self.liga}.")
+    def ligar(self):
+        self.estado = "ligado"
+        print(f"O rádio está {self.estado}.")
 
-    def desligado(self, liga):
-        self.estado = liga
-        if self.estado == "desligado":
+    def desligar(self):
+        if self.estado == "ligado": 
+            self.estado = "desligado"
             print(f"O rádio está {self.estado}.")
 
-    def mudar_frequencia(self, frequencias, liga):
-        self.estado = liga
+    def mudar_frequencia(self):
         if self.estado == "ligado":
-            self.frequencia = frequencias
             print(f"A frequncia atual da rádio é a {self.frequencia}.")
 
-    def mudar_estacao_cima(self, liga):
-        self.estado = liga
+    def mudar_estacao_cima(self):
         if self.estado == "ligado":
             self.estacao += 10
             print(f"A estação atual é {self.estacao}.")
 
-    def mudar_estacao_baixo(self, liga):
-        self.estado = liga
+    def mudar_estacao_baixo(self):
         if self.estado == "ligado":
             self.estacao -= 5
             print(f"A estação atual é {self.estacao}.")
+            
+    def aumentar_volume(self):
+        if self.volume > 10:
+            print("Volume acima do permitido.")
+        elif self.volume < 0:
+            print("Volume abaixo do permitido.")
+        else:
+            self.volume += 1
+            print(f"O volume atual é {self.volume}.")
+    def diminuir_volume(self):
+        if self.volume < 0:
+            print("Volume abaixo do permitido.")
+        elif self.volume > 10:
+            print("Volume acima do permitido.")
+        else:
+            self.volume -= 1
+            print(f"O volume atual é {self.volume}.") 
+
 
 #Criação dos objetos
 meu_radio = Radio()
-meu_radio.estado = 'ligado'
-meu_radio.cor = "azul escuro"
-meu_radio.frequencia = "AM"
+meu_radio.ligar()
+meu_radio.cor = "preto"
+meu_radio.frequencia = "FM"
+meu_radio.mudar_frequencia()
+meu_radio.volume = 8
+meu_radio.aumentar_volume()
 meu_radio.estacao = 80
-meu_radio.ligar(meu_radio.estado)
-meu_radio.mudar_frequencia(meu_radio.frequencia, meu_radio.estado)
-meu_radio.mudar_estacao_cima(meu_radio.estado)
-meu_radio.mudar_estacao_baixo(meu_radio.estado)
+meu_radio.mudar_estacao_baixo()
+meu_radio.volume = 9
+meu_radio.diminuir_volume()
+meu_radio.mudar_estacao_cima()
+meu_radio.desligar()
 print(f"A Cor do rádio é {meu_radio.cor}.")
         
     
