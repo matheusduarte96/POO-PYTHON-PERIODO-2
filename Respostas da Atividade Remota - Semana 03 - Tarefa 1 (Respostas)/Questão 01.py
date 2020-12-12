@@ -59,6 +59,7 @@ meu_carro1.veloc_atual = 100
 meu_carro1.acelerar()
 meu_carro1 = carro(100, 80, True, "cinza", "savero")
 meu_carro1.ligar()
+print(f"A cor do carro é: {meu_carro1.cor}.")
 
 print("-="*37)
 
@@ -72,5 +73,6 @@ meu_carro2.acelerar()
 meu_carro2.parar()
 meu_carro2 = carro(0, 200, True,"azul escuro", "lamburguini")
 meu_carro2.ligar()
+print(f"A cor do carro é: {meu_carro2.cor}.")
 
 
