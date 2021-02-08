@@ -24,7 +24,7 @@ class Banco:
             \nConta Corrente tem: {c}\nConta Poupança tem: {p}""")
                           
     @property
-    def saldo_total(slef):
+    def saldo_total(self):
         return self._saldo_total
     
     
